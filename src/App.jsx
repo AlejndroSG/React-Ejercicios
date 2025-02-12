@@ -3,6 +3,8 @@ import './App.css'
 import Boton from './componentes/Boton'
 import Listas from './componentes/Listas';
 import Contador from './componentes/Contador';
+import Buscador from './componentes/Buscador';
+import Opciones from './componentes/Opciones';
 
 function App() {
   // let [numero, setnumero] = useState(0)
@@ -30,6 +32,22 @@ function App() {
   //   setTareas(nuevoArray);
   // }
 
+  // let [listaLi, setlistaLi] = useState([]);
+  let [LiDefault, setLiDefault] = useState(["hola", "buenas", "tardes"]);
+  let [palabra, setPalabra] = useState("");
+
+  const [valor, setvalor] = useState();
+
+  let value = (valor)=>{
+    setvalor(valor);
+    console.log(valor)
+  }
+
+  let guardar = (palabra) => {
+    setPalabra(palabra);
+  }
+  
+
   return (
     <>
       {/* <p>{numero}</p>
@@ -47,7 +65,24 @@ function App() {
         }
       </ul> */}
 
-      <Contador></Contador>
+      {/* <Contador></Contador> */}
+
+      {/* <Buscador guardar={guardar}></Buscador>
+
+      <ul>
+        {
+          LiDefault.map((li, index) =>{
+            return(
+              li.includes(palabra) ? <li key={index}>{li}</li> : ""
+            )
+          })
+        }
+      </ul> */}
+
+      <Opciones value={value}></Opciones>
+      {valor == 0 ? <h1>5</h1> : ""}
+      {valor == 1 ? <h1>10</h1> : ""}
+      {valor == 2 ? <h1>20</h1> : ""}
     </>
   )
 }
